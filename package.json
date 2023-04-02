@@ -2,8 +2,11 @@
   "name": "rncourse",
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
+  "homepage": "https://heshanu.github.io/react-gh-pages",
   "scripts": {
     "start": "expo start",
+    "predeply": "npm run build",
+    "deploy": "gh-pages -d build",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
@@ -18,7 +21,8 @@
     "react-native-web": "0.17.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.12.9",
+    "gh-pages": "^5.0.0"
   },
   "private": true
 }
