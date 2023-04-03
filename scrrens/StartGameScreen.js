@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, StyleSheet, Pressable } from "react-native-web";
+import { View, TextInput, StyleSheet} from "react-native-web";
 import PrimaryButton from "../compoents/PrimaryButton";
 
 const StartGameScreen = () => {
@@ -12,11 +12,12 @@ const StartGameScreen = () => {
       <TextInput
         placeholder="Type here to translate!"
         style={styles.inputText}
+        maxLength={20}
+        keyboardType="numeric"
       />
       <PrimaryButton
         title="Start"
         style={styles.startGameScreenbutton}
-        onPress={showMessage()}
       />
       <PrimaryButton title="Reset" style={styles.startGameScreenbutton} />
     </View>
@@ -28,8 +29,8 @@ export default StartGameScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 2,
-    flexDirection: "row",
-    justifyContent: "space-between",
+    //flexDirection: "row",
+    //justifyContent: "space-between",
     padding: 20,
     marginTop: 100,
     backgroundColor: "#72063c",
@@ -59,6 +60,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     borderBottomWidth: 5,
     borderBottom: "solid 10px #000",
+    textAlign: "center",
   },
 
   startGameScreenbutton: {
