@@ -8,6 +8,7 @@ const PrimaryButton = (props) => {
   return (
     <View style={styles.buttonOuterContainer}>
       <Pressable
+      //apply when button click or press both style
         style={({ pressed }) =>
           pressed
             ? [styles.buttonInterContainer, styles.pressed]
@@ -25,17 +26,17 @@ const PrimaryButton = (props) => {
 export default PrimaryButton;
 const styles = StyleSheet.create({
   buttonOuterContainer: {
-    borderRadius: 30,
+    borderRadius:5,
     margin: 4,
     overflow: "hidden",
   },
   buttonInterContainer: {
     backgroundColor: "red",
-    borderRadius: 30,
+    borderRadius: 5,
     paddingVertical: 10,
-    paddingHorizontal: 20,
+    paddingHorizontal: 10,
     elevation: 10,
-    margin: 4,
+    margin: 5,
   },
 
   buttonText: {

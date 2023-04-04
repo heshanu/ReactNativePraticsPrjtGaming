@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, StyleSheet} from "react-native-web";
+import { View, TextInput, StyleSheet } from "react-native-web";
 import PrimaryButton from "../compoents/PrimaryButton";
 
 const StartGameScreen = () => {
@@ -15,11 +15,14 @@ const StartGameScreen = () => {
         maxLength={20}
         keyboardType="numeric"
       />
-      <PrimaryButton
-        title="Start"
-        style={styles.startGameScreenbutton}
-      />
-      <PrimaryButton title="Reset" style={styles.startGameScreenbutton} />
+      <View style={styles.buttonsContainer}>
+        <View style={styles.buttonContainer}>
+          <PrimaryButton title="Start" style={styles.startGameScreenbutton} />
+        </View>
+        <View style={styles.buttonContainer}>
+          <PrimaryButton title="Reset" style={styles.startGameScreenbutton} />
+        </View>
+      </View>
     </View>
   );
 };
@@ -28,6 +31,8 @@ export default StartGameScreen;
 
 const styles = StyleSheet.create({
   container: {
+    justifyContent: "center",
+    alignItems: "center",
     flex: 2,
     //flexDirection: "row",
     //justifyContent: "space-between",
@@ -54,7 +59,7 @@ const styles = StyleSheet.create({
     width: 200,
     height: 40,
     backgroundColor: "#fff",
-    borderRadius: 10,
+    borderRadius:5,
     fontWeight: "bold",
     marginVertical: 10,
     fontWeight: "bold",
@@ -70,5 +75,13 @@ const styles = StyleSheet.create({
     paddingLeft: 10,
     paddingRight: 10,
     backgroundColor: "#rgb(0, 0, 255)",
+  },
+
+  buttonsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  buttonContainer: {
+    flex: 2,
   },
 });
