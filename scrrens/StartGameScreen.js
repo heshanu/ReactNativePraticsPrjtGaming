@@ -16,8 +16,8 @@ const StartGameScreen = () => {
 
   const confirmInputHandle = () => {
     const choosenNum = parseInt(enterNumber);
-    if (choosenNum <= 1 || choosenNum >= 99) {
-      Alert.alert('Alert Title', 'My Alert Msg', [
+    if (isNaN(choosenNum) || choosenNum <= 1 || choosenNum >= 99) {
+      Alert.alert('Invalid Number!', 'Please enter more than 1 less than 100', [
         {
           text: 'Cancel',
           onPress: () => resetHandler,
@@ -26,7 +26,7 @@ const StartGameScreen = () => {
       ]);
       return;
     }
-    console.log(choosenNum);
+    alert(choosenNum);
   };
 
   return (
