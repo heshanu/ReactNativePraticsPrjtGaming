@@ -1,26 +1,51 @@
 import React, { useState } from "react";
-import { View, TextInput, StyleSheet } from "react-native-web";
+import { View, TextInput, StyleSheet, Alert } from "react-native";
+
 import PrimaryButton from "../compoents/PrimaryButton";
 
 const StartGameScreen = () => {
-  const showMessage = () => {
-    console.log("Start Game");
+  const [enterNumber, setEnterNumber] = useState("");
+
+  const numberInputHandle = (enterNumber) => {
+    setEnterNumber(enterNumber);
+  };
+
+  const resetHandler = () => {
+    setEnterNumber('');
+  }
+
+  const confirmInputHandle = () => {
+    const choosenNum = parseInt(enterNumber);
+    if (choosenNum <= 1 || choosenNum >= 99) {
+      Alert.alert('Alert Title', 'My Alert Msg', [
+        {
+          text: 'Cancel',
+          onPress: () => resetHandler,
+          style: 'cancel',
+        },
+      ]);
+      return;
+    }
+    console.log(choosenNum);
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.inputContainer}>
       <TextInput
-        placeholder="Type here to translate!"
-        style={styles.inputText}
-        maxLength={20}
-        keyboardType="numeric"
+        style={styles.numberInput}
+        maxLength={2}
+        autoCapitalize="none"
+        autoCorrect={false}
+        value={enterNumber}
+        keyboardType="number-pad"
+        onChangeText={numberInputHandle}
       />
       <View style={styles.buttonsContainer}>
         <View style={styles.buttonContainer}>
-          <PrimaryButton title="Start" style={styles.startGameScreenbutton} />
+          <PrimaryButton title="start" onPress={confirmInputHandle} />
         </View>
         <View style={styles.buttonContainer}>
-          <PrimaryButton title="Reset" style={styles.startGameScreenbutton} />
+          <PrimaryButton title="end" onPress={resetHandler} />
         </View>
       </View>
     </View>
@@ -30,58 +55,35 @@ const StartGameScreen = () => {
 export default StartGameScreen;
 
 const styles = StyleSheet.create({
-  container: {
+  inputContainer: {
     justifyContent: "center",
     alignItems: "center",
-    flex: 2,
-    //flexDirection: "row",
-    //justifyContent: "space-between",
-    padding: 20,
     marginTop: 100,
-    backgroundColor: "#72063c",
-    borderRadius: 10,
-    elevation: 5,
+    marginHorizontal: 24,
+    padding: 16,
+    backgroundColor: "#3b021f",
+    borderRadius: 8,
+    elevation: 4,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
     shadowOpacity: 0.25,
-    marginBottom: 20,
-    paddingBottom: 10,
   },
-
-  inputText: {
+  numberInput: {
     height: 50,
     width: 50,
-    flex: 0.5,
-    marginTop: 20,
-    marginBottom: 20,
-    alignSelf: "center",
-    width: 200,
-    height: 40,
-    backgroundColor: "#fff",
-    borderRadius:5,
+    fontSize: 32,
+    borderBottomColor: "#ddb52f",
+    borderBottomWidth: 2,
+    color: "#ddb52f",
+    marginVertical: 8,
     fontWeight: "bold",
-    marginVertical: 10,
-    fontWeight: "bold",
-    borderBottomWidth: 5,
-    borderBottom: "solid 10px #000",
-    textAlign: "center",
+    textAlign: "center", borderWidth: 5
   },
-
-  startGameScreenbutton: {
-    Flex: 0.5,
-    marginLeft: 10,
-    marginRight: 10,
-    paddingLeft: 10,
-    paddingRight: 10,
-    backgroundColor: "#rgb(0, 0, 255)",
-  },
-
   buttonsContainer: {
     flexDirection: "row",
-    justifyContent: "space-between",
   },
   buttonContainer: {
-    flex: 2,
+    // flex: 1,
   },
 });
