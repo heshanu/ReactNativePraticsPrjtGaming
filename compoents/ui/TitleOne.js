@@ -1,5 +1,7 @@
 import React from "react";
-import { View, Text, Pressable, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+
+import Colors from "../../constraints/colors";
 
 const TitleOne = (props) => {
     return (
@@ -14,7 +16,7 @@ export default TitleOne;
 const styles = StyleSheet.create({
     title: {
         textAlign: 'center',
-        fontSize: 18,color: 'black',
+        fontSize: 18, color: 'black',
         fontWeight: 'bold'
         , color: 'black', borderWidth: 2, borderColor: 'black',
         padding: 10, marginVertical: 10

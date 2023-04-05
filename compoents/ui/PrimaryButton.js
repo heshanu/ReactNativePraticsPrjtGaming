@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, Pressable, StyleSheet } from "react-native";
+import Colors from "../../constraints/colors";
 
 const PrimaryButton = (props) => {
   return (
@@ -12,7 +13,7 @@ const PrimaryButton = (props) => {
             : styles.buttonInterContainer
         }
         onPress={props.onPress}
-        android_ripple={{ color: "red" }}
+        android_ripple={{ color: Colors.primary500 }}
       >
         <Text style={styles.buttonText}>{props.title}</Text>
       </Pressable>

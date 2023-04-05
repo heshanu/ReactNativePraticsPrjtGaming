@@ -6,6 +6,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import StartGameScreen from "./scrrens/StartGameScreen";
 import GameScreen from "./scrrens/GameScreen";
 
+//importing colors
+import Colors from "./constraints/colors";
 export default function App() {
   const [userNumber, setUserNumber] = useState();
 
@@ -44,7 +46,9 @@ const styles = StyleSheet.create({
   },
   rootScreen: {
     flex: 1,
-    backgroundColor: "#ddb52f",
+    backgroundColor: Colors.primary600
+    // "#ddb52f",
+
   },
   backgroundImage: {
     opacity: 0.15,
