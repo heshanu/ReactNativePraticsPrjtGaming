@@ -18,7 +18,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 18, color: 'black',
         fontWeight: 'bold'
-        , color: 'black', borderWidth: 2, borderColor: 'black',
-        padding: 10, marginVertical: 10
+        ,borderWidth: 2, borderColor: Colors.accent500,
+        padding: 10, marginVertical: 10, color: Colors.accent500
     }
 })
