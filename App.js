@@ -12,16 +12,37 @@ import Colors from "./constraints/colors";
 
 //importing  components
 import TitleOne from "./compoents/ui/TitleOne";
+
+//import expo-font
+import { useFonts } from "expo-font";
+
 export default function App() {
   const [userNumber, setUserNumber] = useState();
   const [gameIsOver, setGameIsOver] = useState(false);
+  const [guessRounds, setGuessRounds] = useState(0);
+
+  //use downloaded fonts
+  /*
+  const [fontsLoaded]=useFonts({
+
+  });
+  
+  if(!fontsLoaded){
+    return <AppLoading/>
+  }*/
 
   const pickedNumberHandler = (selectedNumber) => {
     setUserNumber(selectedNumber)
   }
 
-  const gameOverHandler = () => {
+  const gameOverHandler = (numberOfRounds) => {
     setGameIsOver(true);
+    setGuessRounds(numberOfRounds);
+  }
+
+  const startNewGameHandler = () => {
+    setGameIsOver(true);
+    setGuessRounds(0);
   }
 
   let screen = <StartGameScreen onPickNumber={pickedNumberHandler} />
@@ -31,11 +52,10 @@ export default function App() {
   }
 
   if (gameIsOver && userNumber) {
-    screen = <GameOverScreen />
+    screen = <GameOverScreen userNumber={userNumber} onStartNewGame={gameOverHandler} roundNumber={guessRounds} />
   }
 
   //setGAmeIsOver(true)
-
   return (
     <LinearGradient colors={["#4e0329", "#ddb52f"]} style={styles.rootScreen}>
       <ImageBackground
@@ -44,7 +64,7 @@ export default function App() {
         resizeMethod="scale"
         imageStyle={styles.backgroundImage}
       >
-   
+
         <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
       </ImageBackground>
     </LinearGradient>
