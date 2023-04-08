@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, StyleSheet, Alert } from "react-native";
+import { View, TextInput, StyleSheet, Alert,Text } from "react-native";
 
 //import components
 import PrimaryButton from "../compoents/ui/PrimaryButton";
@@ -8,7 +8,7 @@ import Card from "../compoents/ui/Card";
 
 //import constraints
 import Colors from "../constraints/colors";
-import { SafeAreaView } from "react-native-web";
+import { SafeAreaView } from "react-native";
 
 const StartGameScreen = (props) => {
   const [enterNumber, setEnterNumber] = useState("");

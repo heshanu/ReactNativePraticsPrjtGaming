@@ -64,7 +64,6 @@ export default function App() {
         resizeMethod="scale"
         imageStyle={styles.backgroundImage}
       >
-
         <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
       </ImageBackground>
     </LinearGradient>

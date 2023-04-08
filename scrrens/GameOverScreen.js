@@ -1,12 +1,10 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, Image } from "react-native";
+import { SafeAreaView, StyleSheet, Image,View,Text} from "react-native";
 
 //importing colors
 //importing  components
 import TitleOne from "../compoents/ui/TitleOne";
 import PrimaryButton from "../compoents/ui/PrimaryButton";
-import { View } from "react-native";
-
 import Colors from "../constraints/colors";
 
 const GameOverScreen = (props) => {

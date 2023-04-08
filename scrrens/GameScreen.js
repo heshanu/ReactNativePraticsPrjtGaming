@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { View, Text, StyleSheet, Alert, SafeAreaView, FlatList } from "react-native";
+import React, { useState, useEffect, useMemo } from "react";
+import { View, Text, StyleSheet, Alert, SafeAreaView, FlatList, ScrollView } from "react-native";
 
 //import number container
 import NumberContainer from "../compoents/game/NumberContainer";
@@ -33,7 +33,7 @@ const GameScreen = (props) => {
     const [currentGuess, setCurrentGuess] = useState(initialGuess);
     const [guessRounds, setGuessRounds] = useState([initialGuess]);
 
-    useEffect(() => {
+    useMemo(() => {
         if (currentGuess === props.onNumber) {
             props.onGameOver(guessRounds.length);
             Alert.alert('Game Over', 'You Won!', [{ text: 'Play Again', style: 'cancel' }])
@@ -42,7 +42,7 @@ const GameScreen = (props) => {
     }, [currentGuess, props.onGameOver, props.onNumber]);
 
 
-    useEffect(() => {
+    useMemo(() => {
         minBoundary = 1;
         maxBoundary = 100;
     }, [])
